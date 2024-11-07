@@ -15,8 +15,8 @@
   */
 
 #include QMK_KEYBOARD_H
-#include "oled.c"
 #include <stdio.h>
+#include "oled.c"
 
 //extern uint8_t is_master;
 
