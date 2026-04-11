@@ -151,7 +151,11 @@ static void print_status_narrow(void) {
             oled_write_ln_P(PSTR("Undef"), false);
     }
 
-    // Print CAPSLOCK status
+    // Render caps lock status
+    oled_write_P(PSTR("\n\n"), false);
+    oled_write_ln_P(PSTR("Caps Lock"), host_keyboard_led_state().caps_lock);
+    
+    // Render last pressed key
     oled_write_P(PSTR("\n\n"), false);
     oled_write_ln(read_keylog(), false);
 }
@@ -170,7 +174,6 @@ bool oled_task_user(void) {
     } else {
          render_anim();
     }
-
     return false;
 }
 
@@ -184,5 +187,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   return true;
 }
+
+
 
 #endif
